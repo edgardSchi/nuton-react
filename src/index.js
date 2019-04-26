@@ -12,7 +12,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class Nuton extends React.Component {
   render() {
     return(
+      <BrowserRouter>
         <App />
+      </BrowserRouter>
+        
     );
   }
 }

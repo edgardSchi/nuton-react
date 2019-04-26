@@ -3,7 +3,22 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100vh;
-  background: 'green'
+  color: #e2e2e2;
+  background: #202d3a;
+}
+
+.main-div {
+  color: #e2e2e2;
+  background: #202d3a;
+  height: 100%;
+}
+
+
+header,
+section,
+footer {
+  margin: 0;
+  padding: 0px;
 }
 
 p {
@@ -19,4 +34,81 @@ ol, ul {
   padding-left: 30px;
 }
 
+.download-btn {
+  font-size: 1.6rem;
+  padding: 2.4% 5%;
+  background-color: #cc2424;
+  margin-top: 30px;
+  border: none;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: #e2e2e2;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 5px;
+}
 
+.red-btn {
+  font-size: 1rem;
+  padding: 1% 2%;
+  background-color: #cc2424;
+  border: none;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: #e2e2e2;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.git-command {
+/* margin-left: 15px;
+margin-right: 15px;
+margin-top: 10px;
+margin-bottom: 5px; */
+border-style: solid;
+border-color: #e2e2e2;
+background-color: #e2e2e2;
+border-radius: 3px;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #e2e2e2;
+  margin: 10px;
+  outline: none;
+}
+
+.link:hover {
+  color: #cc2424;
+  text-decoration: none;
+}
+
+.footer-link {
+  text-decoration: none;
+  outline: none;
+  color: #a9a9a9;
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: #e2e2e2;
+}
+
+
+.impressum h2 {
+  font-size: 1.5rem;
+}
+
+.impressum h3 {
+  font-size: 1.5rem;
+}
+
+.impressum p {
+  font-size: 1rem;
+}
