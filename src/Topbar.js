@@ -50,9 +50,7 @@ class Topbar extends Component {
             <Link to="/download" className="link">
               Download
             </Link>
-            <Link to="/docs" className="link">
-              Docs
-            </Link>
+            <a href="../javadoc/javadoc.html" target="_blank" className="link">Docs</a>
             <a target="_blank" href="https://github.com/edgardSchi/nuton" className="link">GitHub</a>
           </Nav>
         </Navbar.Collapse>

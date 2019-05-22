@@ -1,6 +1,7 @@
 import React from "react";
 import '../index.css'
 import {Button} from 'react-bootstrap'
+const download = require('downloadjs');
 
 const textDivStyle = {
   paddingLeft: "15px",
@@ -34,13 +35,34 @@ const ulStyle = {
 
 class Version extends React.Component {
 
+  handleDownload = () => {
+    var path = this.props.version.path;
+    var res = fetch(`/download/${path}`)
+    .then((res) => res.blob())
+    .then(blob => {
+      download(blob, "Nuton_" + this.props.version.versionNumber + ".jar", "application/java-archive");
+      // const url = window.URL.createObjectURL(new Blob([blob]));
+      // const link = document.createElement('a');
+      // link.href = url;
+      // link.setAttribute('download', "Nuton_" + this.props.version.versionNumber + ".jar");
+      // document.body.appendChild(link);
+
+      // link.click();
+
+      // link.parentNode.removeChild(link);
+    })
+    .catch(err => console.log(err));
+    console.log(res);
+  }
+
   render() {
-    const added = this.props.version.added.map(function(val) {
-        return <li>{val}</li>
+    
+    const added = this.props.version.added.map(function(val, index) {
+        return <li key={index}>{val}</li>
     });
 
-    const fixed = this.props.version.fixed.map(function(val) {
-        return <li>{val}</li>
+    const fixed = this.props.version.fixed.map(function(val, index) {
+        return <li key={index}>{val}</li>
     });
     return (
       <div style={subDivStyle}>
@@ -59,7 +81,7 @@ class Version extends React.Component {
             </ul>
           </div>
           <div style={btnDivStyle}>
-            <Button bsPrefix="red-btn">Herunterladen</Button>
+            <Button bsPrefix="red-btn" onClick={this.handleDownload}>Herunterladen</Button>
           </div>
         </div>
       </div>

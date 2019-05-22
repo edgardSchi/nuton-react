@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./index.css";
 import Changelog from './components/Changelog.js';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const divStyle = {
   width: "100%",
@@ -43,27 +43,34 @@ const textDivStyle = {
 
 class Download extends React.Component {
 
-    //Test data for version API
-    state = {
-        version: [
-            {
-                id: 1,
-                versionNumber: "1.0",
-                date: "12.06.2018",
-                added: ["Dies", "Das"],
-                fixed: ["Alles", "nix"],
-                path: ""
-            },
-            {
-                id: 2,
-                versionNumber: "1.1",
-                date: "13.06.2018",
-                added: ["Das", "Dies"],
-                fixed: ["Nix", "Alles"],
-                path: ""
-            }
-        ]
-    } 
+  //Test data for version API
+  state = {
+    version: [
+    ],
+    latestVersion: {
+      
+    }
+  }
+
+  componentDidMount() {
+    fetch("/api/versions/")
+      .then(res => {
+        return res.json();
+      }).then(json => {
+        console.log(json);
+        this.setState({version: json});
+      })
+    .catch(err => console.log(err));
+
+    fetch("/api/versions/latestVersion")
+    .then(res => {
+      return res.json();
+    }).then(json => {
+      console.log(JSON.stringify(json));
+      this.setState({latestVersion: json});
+    })
+    .catch();
+  }
 
   render() {
     return (
@@ -72,7 +79,7 @@ class Download extends React.Component {
           <Button variant="danger" size="lg" bsPrefix="download-btn">
             Herunterladen
           </Button>
-          <h6>Version 1.2</h6>
+          <h6>Aktuelle Version</h6>
         </div>
         <div
           style={{
@@ -105,7 +112,7 @@ class Download extends React.Component {
           <div style={subTitleStyle}>
             <h3 style={titleStyle}>Versionen</h3>
           </div>
-          <Changelog version={ this.state.version }/>
+          <Changelog version={this.state.version} />
         </div>
       </div>
     );

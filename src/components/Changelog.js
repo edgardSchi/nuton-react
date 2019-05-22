@@ -7,7 +7,7 @@ class Changelog extends React.Component {
       let reverseArray = this.props.version.slice();
       reverseArray.reverse();
         return reverseArray.map((v) => (
-            <Version version={v} />
+            <Version version={v} key={v.id}/>
         ));
   }
 }
