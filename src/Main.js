@@ -10,6 +10,7 @@ import GettingStarted from "./GettingStarted.js";
 import License from "./License.js";
 import Impressum from "./Impressum.js";
 import Datenschutz from "./Datenschutz.js";
+import ApiPage from "./ApiPage.js";
 
 class Main extends React.Component {
   render() {
@@ -26,6 +27,7 @@ class Main extends React.Component {
               <Route path="/lizenz" component={License} />
               <Route path="/impressum" component={Impressum} />
               <Route path="/datenschutz" component={Datenschutz} />
+              <Route path="/apipage" component={ApiPage} />
               <Route component={NotFound} />
             </Switch>
           </div>
